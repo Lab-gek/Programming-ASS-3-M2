@@ -2,8 +2,11 @@
 textImport text = new textImport
 loadFont font 
 
-String text = "Placeholder";
-String[] cardText = {}
+String message = "text.txt";
+
+messageLtext(message.charAt(i))
+
+String[] cardMessage = {};
 
 void setup() {
 
