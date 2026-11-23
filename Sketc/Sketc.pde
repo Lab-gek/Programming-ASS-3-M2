@@ -1,19 +1,26 @@
+PFont font;
 
-textImport text = new textImport
-loadFont font 
 
+
+int i;
 String message = "text.txt";
 
-messageLtext(message.charAt(i))
+for(message.length(); i < message.length(); i++) {
+int messageLength = text(message.charAt(i));
+String[] cardMessageTemp = {};
+String[] cardMessage = append(cardMessageTemp, );
+}
 
-String[] cardMessage = {};
+
 
 void setup() {
-
-  size(800, 600);
-  background(255);
- }
+    font = loadFont("ComicSansMS-48.vlw");
+    textFont(font,48);
+    size(800, 600);
+  background(0);
+}
 
  void draw() {
+    text("twee",20,20);
     
  }
