@@ -2,7 +2,7 @@
 textImport text = new textImport
 loadFont font 
 
-
+String text = "Placeholder";
 String[] cardText = {}
 
 void setup() {
