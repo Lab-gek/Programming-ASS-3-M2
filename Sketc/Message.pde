@@ -28,24 +28,13 @@ class Message {
 
 
   void update() {
-    float noisescale = 0.02;
+
     
     for (int i = 0; i < cardMessage.length; i++) {
       text(cardMessage[i], 10 + x[i], 50 + y[i] );
     }
-    float xlimit = width/cardMessage.length;
-    if (falling) {
-      for (int i = 0; i < cardMessage.length; i++) {
-        if (x[i]<xlimit*i) {
-        x[i] = x[i] + noise(x[i] * noisescale, y[i] * noisescale) * 20;}
-        else{
-          x[i] = x[i] - noise(x[i] * noisescale, x[i] * noisescale) * 20;
-        }
-        y[i] = y[i] + noise(x[i] * noisescale, y[i] * noisescale) * 10;
-        
-      }
-    }
-    println(originalPosition());
+    
+    updatePosition();
   }
   void clicked() {
 
@@ -59,7 +48,7 @@ class Message {
   }
 
 
-  
+
   //Check if the letters are in their original position
   boolean originalPosition() {
     for (int i = 0; i < cardMessage.length; i++) {
@@ -73,5 +62,21 @@ class Message {
     return orgPosition;
   }
   
+
+void updatePosition(){
+  float noisescale = 0.02;
+  float xlimit = cardMessage.length * 50/ cardMessage.length;
+    if (falling) {
+      for (int i = 0; i < cardMessage.length; i++) {
+        if (x[i]<xlimit*i) {
+        x[i] = x[i] + noise(x[i] * noisescale, y[i] * noisescale) * 20;}
+        else{
+          x[i] = x[i] - noise(x[i] * noisescale, x[i] * noisescale) * 20;
+        }
+        y[i] = y[i] + noise(x[i] * noisescale, y[i] * noisescale) * 10;
+        
+      }
+    }
 }
 
+}
