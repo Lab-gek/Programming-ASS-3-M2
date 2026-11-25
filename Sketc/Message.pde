@@ -1,15 +1,22 @@
 class Message {
 
-String message = loadStrings("text.txt");
+  String[] message = loadStrings("text.txt");
+  String[] cardMessage = {};
 
-void createMessage() {
-    String[] cardMessage = {};
-    
-   for(int i = 0; i < message.length; i++) {
-     String character = str(message.charAt(i));
-    cardMessage = append(cardMessage, character);
+  void createMessage() {
+    String content = join(message, " ");
+    for (int i = 0; i < content.length(); i++) {
+      cardMessage = append(cardMessage, str(content.charAt(i)));
+    }
+  }
 
-    println(cardMessage[i]); //TESTS OUT MESSAGE
-   }
+  void update() {
+    println("New");
+    for (int i = 0; i < cardMessage.length; i++) {
+      text(cardMessage[i], 10 + i * 22, 50);
+
+      println(cardMessage[i]);
+
+    }
   }
 }
