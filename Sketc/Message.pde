@@ -13,8 +13,7 @@ class Message {
   //Vars for waterfall
   boolean falling = false;
   boolean orgPosition = true;
-
-
+  float fontSize = 48;
   
   void createMessage() {
     String content = join(message, " ");
@@ -66,20 +65,21 @@ class Message {
   
 
 void updatePosition(){
-  float noisescale = 0.02;
-  float xline = cardMessage.length * 50/ cardMessage.length;
-  float xlineOffset = 50;
+  float noisescale = 0.1;
+  float xline = cardMessage.length * fontSize/ cardMessage.length;
+  float xlineOffset = 10;
     if (falling) {
       for (int i = 0; i < cardMessage.length; i++) {
-
-        x[i] =constrain( x[i] +noise(x[i] * noisescale, y[i] * noisescale) * 10, i*xline-xlineOffset, i*xline+xlineOffset);
+        float change = (noise(i * 0.2, frameCount * 5.01) - 0.5) * 9;
+        x[i] = constrain(x[i] + change, i*xline - xlineOffset, i*xline + xlineOffset);
         if (y[i] < height) {
-          y[i] = y[i] + noise(x[i] * noisescale, y[i] * noisescale) * 10;
+          y[i] = y[i] + noise(x[i] * noisescale, y[i] * noisescale) *5;
         }
         else{
           y[i] = -20;
         }        
       }
+      println(y[1]);
     }
 }
 

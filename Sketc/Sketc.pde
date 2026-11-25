@@ -5,7 +5,7 @@ Message message;
 
 
 void setup() {
-    size(800, 600);
+    size(1600, 600);
     font = loadFont("ComicSansMS-48.vlw");
     textFont(font,48);
 
