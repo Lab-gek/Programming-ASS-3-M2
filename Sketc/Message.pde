@@ -12,6 +12,7 @@ class Message {
 
   //Vars for waterfall
   boolean falling = false;
+  boolean orgPosition = true;
 
   void createMessage() {
     String content = join(message, " ");
@@ -20,8 +21,8 @@ class Message {
       x = append(x, i * 50);
       y= append(y, 0);
     }
-    orgX = x;
-    orgY = y;
+    orgX = x.clone();
+    orgY = y.clone();
   }
 
 
@@ -44,6 +45,7 @@ class Message {
         
       }
     }
+    println(originalPosition());
   }
   void clicked() {
 
@@ -54,7 +56,21 @@ class Message {
       falling = true;
       println("Animation started");
     }
+  }
 
+
+  
+  //Check if the letters are in their original position
+  boolean originalPosition() {
+    for (int i = 0; i < cardMessage.length; i++) {
+      if (x[i] != orgX[i] || y[i] != orgY[i]) {
+        orgPosition = false;
+      }
+      else{
+        orgPosition = true;
+      }
+    }
+    return orgPosition;
   }
   
 }
