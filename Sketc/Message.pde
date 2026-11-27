@@ -72,15 +72,17 @@ void updatePosition(){
       for (int i = 0; i < cardMessage.length; i++) {
         float change = (noise(i * 0.2, frameCount * 5.01) - 0.5) * 9;
         x[i] = constrain(x[i] + change, i*xline - xlineOffset, i*xline + xlineOffset);
-        if (y[i] < height) {
+        if (y[i] < height+fontSize) {
           y[i] = y[i] + noise(x[i] * noisescale, y[i] * noisescale) *5;
         }
         else{
-          y[i] = -20;
+          y[i] = -fontSize;
         }        
       }
-      println(y[1]);
     }
-}
+    
 
+
+
+}
 }
