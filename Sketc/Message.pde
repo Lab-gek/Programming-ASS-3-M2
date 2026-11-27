@@ -29,10 +29,14 @@ class Message {
 
 
   void update() {
-
+    float rotation = 0;
     
     for (int i = 0; i < cardMessage.length; i++) {
+      pushMatrix();
+      rotation = noise(i * 0.1, frameCount * 0.01) * PI/4;
+      rotate(-rotation);
       text(cardMessage[i], 10 + x[i], 50 + y[i] );
+      popMatrix();
     }
     
     updatePosition();
